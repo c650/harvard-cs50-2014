@@ -1,0 +1,11 @@
+0.  Pneumonoultramicroscopicsilicovolcanoconiosis is the longest word in the English language. It is also a lung disease.
+1.  `getrusage()` is a function that retrieves data on a program's resource usage during runtime.
+2.  There are 16 members in a variable of type `struct rusage`. 
+3.  Passing `before` and `after` by reference to calulate is more efficient, since they are both `struct rusage`, which is a rather large data type.  
+4.  `main()` reads words from the inputed file using a `for` loop one character at a time. If the character is alphabetical or an apostrophe between letters, it's added to an array which stores the current word. If the word becomes too long, `main()` will run through the rest of that word on line 89 and move on to the next word. If the word includes a non-alphabetical character, it'll also run through the rest of the word and move on (line 100). If neither of these conditions are true, then the current word is a word. It adds a \0 to close off the word and then increments the word counter. Then, it checks the word against the dictionary by calling to `check(word)`. If the word turns out mispelled, `mispellings` is incremented. It resets the `index` to 0 to start a new word. 
+5.  Using `fscanf()` could potentially pick up numbers that will be read as strings, while reading one character at a time and ensuring that each character is a letter or apostrophe is safer. 
+6.  The parameters for `check` and `load` are `const` so that it is certain they are not overwritten or mutated. 
+7.  TODO
+8.  TODO
+9.  TODO
+10. TODO

@@ -1,0 +1,8 @@
+<ctype.h>
+<cs50.h>
+<string.h>
+<stdio.h>
+<unistd.h>
+<stdlib.h>
+
+USE: resources.cs50.net

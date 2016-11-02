@@ -1,0 +1,24 @@
+0.  BMP uses either 3 or 4 byte colors, therefore supporting 16 million to 4 billion colors. JPEG supports 3 byte RGB colors, meaning that there are about 16 million colors available. PNG supports either 3 byte RGB or 4 byte RGBA, so 16 million to 4 billion colors. GIF is 1 byte per pixel, so 256 colors per file. 
+1.  The GIF format supports animation. 
+2.  Lossy compression will discard or ignore some data in order to make the compressed file smaller, while lossless compression ensures that no data will be lost when the file is compressed. 
+3.  The JPEG file format uses lossy compression. 
+4.  When a file is 'deleted' on a FAT system, the OS removes the pointer to the file and tags the space that stored it as free, but not actually obfuscating the file, instead simply making it invisible to the user or relocating it to a recycle bin.
+5.  In order to ensure files are deleted, I can boot from a Linux Live CD or USB and mount my file system, proceeding to use `shred` or `wipe` on my /dev/sda* partitions. I could also overwrite using `dd`, yet I should do this several times to be safe. 
+6.  `stdint.h` is a C library which has in it many different types of integers like uint8_t, an 8-bit unsigned int, or uint16_t, another unsigned int, but 16-bits in size. 
+7.  The point of using uint8_t and other forms of these ints is for efficiency. If you know an int you wish to store will always be positive and never need more bits than 8 (or 16, or 32), storing it in such a uint8_t can help you save space or memory. 
+8.  A BYTE is one byte, a DWORD is 4 bytes, a LONG is also 4 bytes, and a WORD is 2 bytes. 
+9.  In hex, the first two bytes of a BMP must be 0x4d42 to tell the computer that it is reading a BMP. 
+10. biSize is the number of bytes required by the BITMAPINFOHEADER struct, while, bfSize is the size of the BMP in bytes. 
+11. If biHeight is negative, that means that the BMP should be read from top to bottom, with its origin being the top left corner. 
+12. The field in BITMAPINFOHEADER that displays the bits-per-pixel is biBitCount. 
+13. `fopen` can return null on copy.c:37 if there is not enough memory to open the file or if the specified file cannot be found or created. On line 37's case, since we are writing to the file, it would be due to lack of available memory or failure to create the file. 
+14. The third element in `fread` is always 1 because this parameter specifies how many elements to read from the file. We only want 1 at a time, so we pass 1 each time. 
+15. copy.c:70 will assign 3 to `padding` if `bi.biWidth` is 3. 
+16. `fseek` changes the file position indicator for `inptr` by shifting it over by the value of `padding`, so as to skip over any padding.
+17. SEEK_CUR is a special constant set to the current position of the file indicator. 
+18. Rob did it.
+
+
+Sources: 
+
+http://en.cppreference.com/w/c/language/operator_precedence
